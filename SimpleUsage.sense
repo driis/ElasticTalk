@@ -1,0 +1,51 @@
+PUT /employees/employee/5
+{
+    "name":"Mick Testguy",
+    "age": 47,
+    "interests": ["rock music","climbing"]
+}
+
+GET /_search?q=john
+
+POST /employees/employee/_search
+{
+    "query": { 
+        "match": {
+           "name": "John"
+        }
+    }
+    , "filter": {
+        "range": {
+           "age": {
+              "to": 40             
+           }
+        }
+    }
+}
+
+POST shakespeare/line/_search?search_type=count
+{
+    "aggs":{
+        "types":{
+            "terms": {
+                "field":"speaker"
+            }
+        }
+    }
+}
+
+POST shakespeare/line/_search
+{
+    "filter":{
+        "term":{
+            "speaker":"BRUTUS"
+        }
+    },
+    "aggs":{
+        "plays":{
+            "terms":{
+                "field":"play_name"
+            }
+        }
+    }
+}
