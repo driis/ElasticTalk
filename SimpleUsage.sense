@@ -5,11 +5,26 @@ PUT /employees/employee/5
     "interests": ["rock music","climbing"]
 }
 
+GET /employees/employee/5
+HEAD /employees/employee/5
+DELETE /employees/employee/5
+
+POST /employees/employee/_mget
+{
+    "ids":[1,2,3]
+}
+
+put employees/employee/1?version=2
+{
+    "name": "John Smith III",
+    "age":35
+}
+
 GET /_search?q=john
 
 POST /employees/employee/_search
 {
-    "query": { 
+    "query": {
         "match": {
            "name": "John"
         }
@@ -17,7 +32,7 @@ POST /employees/employee/_search
     , "filter": {
         "range": {
            "age": {
-              "to": 40             
+              "to": 40
            }
         }
     }
