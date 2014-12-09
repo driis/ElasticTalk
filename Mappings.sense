@@ -1,0 +1,56 @@
+PUT /map/numeric/1
+{
+    "n": "1",
+    "foo":"bar"
+}
+
+PUT /map/numeric_stuff/1
+{
+    "n": 32,
+    "foo":"bar"
+}
+
+PUT /map/numeric_stuff/2
+{
+    "n": "foobar",
+    "foo":"bar"
+}
+
+GET /map/_mapping/numeric
+GET /map/_mapping/numeric_stuff
+
+PUT /map/_mapping/numeric_stuff
+{
+    "properties":{
+        "x":{"type":"string"}
+    }
+}
+
+
+
+DELETE /gb
+
+PUT /gb
+{
+  "mappings": {
+    "tweet" : {
+      "properties" : {
+        "tweet" : {
+          "type" :    "string",
+          "analyzer": "english"
+          },
+          "date" : {
+            "type" :   "date"
+            },
+            "name" : {
+              "type" :   "string"
+              },
+              "user_id" : {
+                "type" :   "long"
+              }
+            }
+          }
+        }
+}
+
+GET /gb/_mapping
