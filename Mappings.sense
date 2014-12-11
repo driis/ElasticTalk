@@ -54,3 +54,33 @@ PUT /gb
 }
 
 GET /gb/_mapping
+
+
+
+DELETE opts
+PUT opts
+{
+    "settings": {
+        "number_of_replicas": 1,
+        "number_of_shards": 5
+    },
+    "mappings": {
+        "z":{
+            "_all" : {"enabled":true},
+            "dynamic": "strict",
+            "properties": {
+                "x": {
+                    "type":"string",
+                    "include_in_all": "false"
+
+                }
+            }
+        }
+    }
+}
+
+PUT opts/z/1
+{
+    "x":"hello,world",
+    "y":"merry christmas"
+}
