@@ -20,7 +20,7 @@ void Main()
 	
 	var searchResponse = client.Search<Employee>(sd => sd.Query(
 		q => q.Match(
-			mq => mq.OnField(m => m.Name).Query("john"))
+			mq => mq.OnField(m => m.Name).Query("lee"))
 		)
 	);
 		

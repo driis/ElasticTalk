@@ -1,0 +1,10 @@
+GET /_search
+GET /_cluster/state
+GET /_cluster/health
+DELETE /employees/employee/5
+PUT /employees/employee/5
+{
+    "name":"Mick Testguy",
+    "age": 47,
+    "interests": ["rock music","climbing"]
+}
